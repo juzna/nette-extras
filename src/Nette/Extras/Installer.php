@@ -30,7 +30,7 @@ class Installer implements \Nette\Addons\CustomInstallers\IInstaller
 
 		if (in_array('jQuery', $items)) {
 			copy("$this->baseDir/assets/javascript/jquery.js", "www/temp/jquery.js"); // copy to output
-			$config['assets']['javascript'][] = 'temp/jquery.js'; // add to addons.neon config
+			$config['assets']['javascript'][] = '%wwwDir%/temp/jquery.js'; // add to addons.neon config
 		}
 
 
@@ -39,14 +39,14 @@ class Installer implements \Nette\Addons\CustomInstallers\IInstaller
 			copy("$this->baseDir/assets/javascript/jquery-ui.js", "www/temp/jquery-ui.js"); // copy to output
 
 			// add to addons.neon config
-			$config['assets']['css'][] = 'temp/jquery-ui/jquery-ui.css';
-			$config['assets']['javascript'][] = 'temp/jquery-ui.js';
+			$config['assets']['css'][] = '%wwwDir%/temp/jquery-ui/jquery-ui.css';
+			$config['assets']['javascript'][] = '%wwwDir%/temp/jquery-ui.js';
 		}
 
 
 		if (in_array('netteForms', $items)) {
 			copy("$this->baseDir/assets/javascript/netteForms.js", "www/temp/netteForms.js"); // copy to output
-			$config['assets']['javascript'][] = 'temp/netteForms.js'; // add to addons.neon config
+			$config['assets']['javascript'][] = '%wwwDir%/temp/netteForms.js'; // add to addons.neon config
 		}
 
 	}
