@@ -28,6 +28,9 @@ class Installer implements \Nette\Addons\CustomInstallers\IInstaller
 		$items = (array) $section; // expected list of items to be installed
 
 
+		if ( ! file_exists('www/temp/')) mkdir('www/temp/', 0777);
+
+
 		if (in_array('jQuery', $items)) {
 			copy("$this->baseDir/assets/javascript/jquery.js", "www/temp/jquery.js"); // copy to output
 			$config['assets']['javascript'][] = '%wwwDir%/temp/jquery.js'; // add to addons.neon config
