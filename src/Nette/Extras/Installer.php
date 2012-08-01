@@ -13,18 +13,33 @@ use Composer\Package\PackageInterface;
  */
 class Installer implements \Nette\Addons\CustomInstallers\IInstaller
 {
-	public function install(InstalledRepositoryInterface $repo, PackageInterface $package, $config = null)
+	private $baseDir;
+
+	public function __construct()
 	{
-		$section = @$package->getExtra()['nette-addon']['extras'];
-		var_dump("Debug - installing a nette addon extras", $config, $section, $package->getExtra());
+		$this->baseDir = realpath(__DIR__ . '/../../../');
 	}
 
-	function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
+
+	public function install(InstalledRepositoryInterface $repo, PackageInterface $package, $section, & $config)
+	{
+		var_dump(getcwd(), $this->baseDir);
+
+		$items = (array) $section; // expected list of items to be installed
+
+		if (in_array('jQuery', $items)) {
+			copy("$this->baseDir/assets/javascript/jquery.js", "www/temp/jquery.js"); // copy to output
+			$config['assets']['javascript'][] = 'temp/jquery.js'; // add to addons.neon config
+		}
+
+	}
+
+	function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target, $section)
 	{
 		// TODO: Implement update() method.
 	}
 
-	function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)
+	function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package, $section)
 	{
 		// TODO: Implement uninstall() method.
 	}
