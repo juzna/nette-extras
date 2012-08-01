@@ -1,0 +1,21 @@
+{
+	"name": "nette/extras",
+	"type": "nette-addon",
+	"description": "Common resources required by Nette Addons",
+	"keywords": [ "nette", "addon", "extras" ],
+	"license": [ "BSD-3" ],
+	"authors": [
+		{
+			"name": "Jan Dolecek",
+			"email": "juzna.cz@gmail.com"
+		}
+	],
+	"require": {
+
+	},
+	"extra": {
+		"nette-addon": {
+
+		}
+	}
+}
