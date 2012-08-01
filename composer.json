@@ -10,12 +10,30 @@
 			"email": "juzna.cz@gmail.com"
 		}
 	],
+	"autoload": {
+		"psr-0": {
+			"Nette\\Extras": "src/"
+		}
+	},
 	"require": {
 
 	},
+	"require-dev": {
+		"composer/composer": "1.0.*",
+		"nette/addon-installer": "@dev"
+	},
+	"minimum-stability": "dev",
 	"extra": {
 		"nette-addon": {
-
+			"addon-section": {
+				"extras": "Nette\\Extras\\Installer"
+			}
 		}
-	}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git://github.com/juzna/nette-addon-installer.git"
+		}
+	]
 }
