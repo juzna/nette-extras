@@ -13,10 +13,10 @@ use Composer\Package\PackageInterface;
  */
 class Installer implements \Nette\Addons\CustomInstallers\IInstaller
 {
-	public function install(InstalledRepositoryInterface $repo, PackageInterface $package)
+	public function install(InstalledRepositoryInterface $repo, PackageInterface $package, $config = null)
 	{
 		$section = @$package->getExtra()['nette-addon']['extras'];
-		var_dump("Debug - installing a nette addon extras", $section, $package->getExtra());
+		var_dump("Debug - installing a nette addon extras", $config, $section, $package->getExtra());
 	}
 
 	function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
